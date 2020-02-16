@@ -38,16 +38,13 @@ public class Teacher {
     public static ArrayList<Student> repeatedStu(ArrayList<Student> originList) {
         ArrayList<Student> result = new ArrayList<Student>();
         for (int i = 0; i < originList.size(); i++) {
-            boolean isTrue = false;
-            for (int j = i + 1; j < originList.size(); j++) {
-                if (originList.get(i).getStuNum() == originList.get(j).getStuNum()) {
-                    isTrue = true;
-                    result.add(originList.get(i));
-                    result.add(originList.get(j));
-                    break;
+                for (int j = 0; j < originList.size(); j++) {
+                    if (originList.get(i).getStuNum() == originList.get(j).getStuNum() && i!=j) {
+                        result.add(originList.get(i));
+                        break;
+                    }
                 }
             }
-        }
         return result;
     }
 }
