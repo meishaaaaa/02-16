@@ -24,24 +24,12 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getStuNum() {
         return stuNum;
     }
 
-    public void setStuNum(String stuNum) {
-        this.stuNum = stuNum;
-    }
-
     public String getDateOfEnroll() {
         return dateOfEnroll;
-    }
-
-    public void setDateOfEnroll(String dateOfEnroll) {
-        this.dateOfEnroll = dateOfEnroll;
     }
 
     @Override
