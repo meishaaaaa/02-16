@@ -35,16 +35,16 @@ public class Teacher {
     }
 
 
-    public static ArrayList<Student> repeatedStu(ArrayList<Student> originList) {
-        ArrayList<Student> result = new ArrayList<Student>();
-        for (int i = 0; i < originList.size(); i++) {
-                for (int j = 0; j < originList.size(); j++) {
-                    if (originList.get(i).getStuNum() == originList.get(j).getStuNum() && i!=j) {
-                        result.add(originList.get(i));
-                        break;
-                    }
+    public ArrayList<Student> checkRepeatedStu(ArrayList<Student> originList) {
+        ArrayList<Student> repeatedStuList = new ArrayList<>();
+        for (Student student1 : originList) {
+            for (Student student2 : originList) {
+                if (student1.getStuNum().equals(student2.getStuNum()) && student1 != student2
+                        && !repeatedStuList.contains(student1)) {
+                    repeatedStuList.add(student1);
                 }
             }
-        return result;
+        }
+        return repeatedStuList;
     }
 }

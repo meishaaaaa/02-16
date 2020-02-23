@@ -2,6 +2,8 @@ package com.thoughtworks;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 public class Student {
@@ -47,15 +49,15 @@ public class Student {
         try {
             return "我叫" + name +
                     "，我的学号是" + stuNum +
-                    "，" + printDate(dateOfEnroll) +
-                    "入学，学龄" + studyYear(dateOfEnroll) + "年";
+                    "，" + getDateString(dateOfEnroll) +
+                    "入学，学龄" + studyYear(dateOfEnroll) + "年\n";
         } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public String printDate(String dateOfEnroll) throws ParseException {
+    public String getDateString(String dateOfEnroll) throws ParseException {
         SimpleDateFormat s1 = new SimpleDateFormat("yyyy.MM.dd");
         Date date = (Date) s1.parse(dateOfEnroll);
         s1 = new SimpleDateFormat("yyyy年MM月dd日");
@@ -63,14 +65,14 @@ public class Student {
         return printDate;
     }
 
-    public int studyYear(String dateOfEnroll) throws ParseException {
-        SimpleDateFormat s1 = new SimpleDateFormat("yyyy.MM.dd");
-        Date date1 = s1.parse(dateOfEnroll);
-        Date date = new Date();
-        long day = ((date.getTime() - date1.getTime()) / (24 * 60 * 60 * 1000));
-        double year1 = day / 365 + 1;
-        int year = (int) year1;
-        return year;
+    public int studyYear(String dateOfEnroll) {
+        String[] splitDate = dateOfEnroll.split("\\.");
+        int year = Integer.parseInt(splitDate[0]);
+        int month = Integer.parseInt(splitDate[1]);
+        int day = Integer.parseInt(splitDate[2]);
+        int studyYear = Period.between(LocalDate.of(year, month, day), LocalDate.now()).getYears();
+        return studyYear;
     }
+
 
 }
