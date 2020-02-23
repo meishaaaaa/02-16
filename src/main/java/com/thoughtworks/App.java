@@ -15,7 +15,7 @@ public class App {
         zhangL.addStu(liS);
         zhangL.addStu(wangW);
 
-        System.out.println(zhangL.checkRepeatedStu(zhangL.getStuList()));
+        zhangL.printRepeatedList(zhangL.checkRepeatedStu(zhangL.getStuList()));
     }
 }
 

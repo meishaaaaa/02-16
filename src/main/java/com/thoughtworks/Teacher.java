@@ -47,4 +47,14 @@ public class Teacher {
         }
         return repeatedStuList;
     }
+
+    public void printRepeatedList(ArrayList<Student> repeatedStuList) {
+        StringBuilder summary = new StringBuilder();
+        summary.append("重复学生名单如下:\n");
+        for (Student student : repeatedStuList) {
+            summary.append(student.getName() + ",").append(student.getStuNum() + ",")
+                    .append(student.getDateOfEnroll() + "\n");
+        }
+        System.out.println(summary.toString());
+    }
 }
