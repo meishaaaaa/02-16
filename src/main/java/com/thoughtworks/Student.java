@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
+import java.util.Objects;
 
 public class Student {
     private String name;
@@ -60,6 +61,14 @@ public class Student {
         int day = Integer.parseInt(splitDate[2]);
         int studyYear = Period.between(LocalDate.of(year, month, day), LocalDate.now()).getYears();
         return studyYear;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return stuNum.equals(student.stuNum);
     }
 
 

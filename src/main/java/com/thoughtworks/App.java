@@ -16,6 +16,7 @@ public class App {
         zhangL.addStu(wangW);
 
         zhangL.printRepeatedList(zhangL.checkRepeatedStu(zhangL.getStuList()));
+
     }
 }
 

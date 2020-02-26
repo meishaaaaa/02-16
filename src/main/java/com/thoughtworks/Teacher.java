@@ -39,8 +39,7 @@ public class Teacher {
         ArrayList<Student> repeatedStuList = new ArrayList<>();
         for (Student student1 : originList) {
             for (Student student2 : originList) {
-                if (student1.getStuNum().equals(student2.getStuNum()) && student1 != student2
-                        && !repeatedStuList.contains(student1)) {
+                if (student1.equals(student2) && !repeatedStuList.contains(student1)) {
                     repeatedStuList.add(student1);
                 }
             }
